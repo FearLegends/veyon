@@ -166,7 +166,7 @@ bool FileTransferPlugin::handleFeatureMessage( VeyonWorkerInterface& worker, con
 		case FileTransferStartCommand:
 			m_currentFile.close();
 			// TODO: make path configurable
-			m_currentFile.setFileName( QDir::homePath() + QDir::separator() + message.argument( Filename ).toString() );
+			m_currentFile.setFileName( QDir::Path() + QDir::separator() + message.argument( Filename ).toString() );
 			if( m_currentFile.exists() && message.argument( OverwriteExistingFile ).toBool() == false )
 			{
 				QMessageBox::critical( nullptr, m_fileTransferFeature.displayName(),
